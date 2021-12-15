@@ -14,9 +14,11 @@ services:
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/cogit gnf/:/etc/nginx/ssl/:ro
   certbot:
-    image: certbot/cerbot:latest
+    image: certbot/cerybot:latest
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
+    networks:
+      - pervasive
   postgresql:
     container_name: postgresql
     image: postgres
