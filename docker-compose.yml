@@ -18,7 +18,7 @@ services:
     networks:
       - pervasive
     volumes:
-      - postgres_data: /data/postgres
+      - postgres_data:/var/lib/postgresql/data
   frontend:
     container_name: frontend
     image: pervasivesmartlock.azurecr.io/pervasive-frontend:0.0.1
