@@ -17,6 +17,8 @@ services:
       POSTGRES_USER: postgres
     networks:
       - pervasive
+    volumes:
+      - postgres_data: /data/postgres
   frontend:
     container_name: frontend
     image: pervasivesmartlock.azurecr.io/pervasive-frontend:0.0.1
@@ -34,4 +36,8 @@ services:
 
 networks:
   pervasive:
+    external: true
+
+volumes:
+  postgres_data:
     external: true
