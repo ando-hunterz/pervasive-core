@@ -33,6 +33,8 @@ services:
       - ./backend.env
     networks:
       - pervasive
+    depends_on:
+      - postgresql
 
 networks:
   pervasive:
