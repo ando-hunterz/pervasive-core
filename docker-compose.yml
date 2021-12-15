@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  nginx:
+    container_name: nginx
+    image: pervasivesmartlock.azurecr.io/pervasive-nginx
+    networks:
+      - pervasive
+    ports:
+      - 80:80
+  postgresql:
+    container_name: postgresql
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: post
+      POSTGRES_USER: postgres
+    networks:
+      - pervasive
+  frontend:
+    container_name: frontend
+    image: pervasivesmartlock.azurecr.io/pervasive-frontend
+    environment:
+      - REACT_APP_BASE_URL=http://pervasive.julandoomar.xyz
+    networks:
+      - pervasive
+  backend:
+    container_name: backend
+    image: pervasivesmartlock.azurecr.io/pervasive-backend
+    env_file:
+      - ./backend.env
+    networks:
+      - pervasive
+
+networks:
+  pervasive:
+    external: true
