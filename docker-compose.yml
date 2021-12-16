@@ -25,14 +25,14 @@ services:
       - postgres_data:/var/lib/postgresql/data
   frontend:
     container_name: frontend
-    image: pervasivesmartlock.azurecr.io/pervasive-frontend:0.0.1
+    image: pervasivesmartlock.azurecr.io/pervasive-frontend:0.0.2
     environment:
       - REACT_APP_BASE_URL=http://pervasive.julandoomar.xyz
     networks:
       - pervasive
   backend:
     container_name: backend
-    image: pervasivesmartlock.azurecr.io/pervasive-backend:0.0.1
+    image: pervasivesmartlock.azurecr.io/pervasive-backend:0.0.2
     env_file:
       - ./backend.env
     networks:
