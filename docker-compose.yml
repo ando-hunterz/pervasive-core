@@ -32,7 +32,7 @@ services:
       - pervasive
   backend:
     container_name: backend
-    image: pervasivesmartlock.azurecr.io/pervasive-backend:0.0.2
+    image: pervasivesmartlock.azurecr.io/pervasive-backend:0.1.0
     env_file:
       - ./backend.env
     networks:
